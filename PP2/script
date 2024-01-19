@@ -1,0 +1,10 @@
+
+
+
+
+
+
+document.addEventListener('DOMContentLoaded', function () {
+    // Tu código JavaScript aquí
+    console.log('Página cargada');
+});
