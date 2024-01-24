@@ -1,10 +1,13 @@
+<script>tElementById("miFormulario").addEventListener("submit", function(event) {
+    event.preventDefault(); 
+    
 
+    
+    var nombre = document.getElementById("nombre").value;
+    var email = document.getElementById("email").value;
 
-
-
-
-
-document.addEventListener('DOMContentLoaded', function () {
-    // Tu código JavaScript aquí
-    console.log('Página cargada');
+    
+    console.log("Nombre:", nombre);
+    console.log("Correo electrónico:", email);
 });
+    </script>
