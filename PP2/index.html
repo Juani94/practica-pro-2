@@ -8,7 +8,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+<script src="https://js.stripe.com/v3/"></script>
 <style>
 body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
 
@@ -51,7 +51,7 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         }
 
 </style>
-<script src="./script" defer></script>
+<script src="./script.js" defer></script>
 </head>
 <body class="w3-light-grey">
 
@@ -101,7 +101,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     
     <div class="w3-container">
       <h3><b>Info de eventos</b></h3>
-      <h5>compra tus entradas para eventos</h5>
+      <h5>compra tus entradas para los eventos donde podes conocerlo en persona</h5>
     </div>
 
     <div class="w3-container">
@@ -114,6 +114,21 @@ and is wrapped around the whole page content, except for the footer in this exam
 
         <label for="password">Contraseña:</label>
         <input type="password" id="password" name="password" required>
+
+        <form id="payment-form">
+          <div>
+            <label for="card-element">Tarjeta de Crédito o Débito</label>
+            <div id="card-element">
+              <!-- Elemento para ingresar los detalles de la tarjeta -->
+            </div>
+        
+            <!-- Utilizado para mostrar errores de validación -->
+            <div id="card-errors" role="alert"></div>
+          </div>
+        
+          <button type="button" id="submit-payment">Realizar Pago</button>
+        </form>
+
 
         <input type="submit" value="Enviar">
     </form>

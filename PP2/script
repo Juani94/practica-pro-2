@@ -1,5 +1,5 @@
 <script>tElementById("miFormulario").addEventListener("submit", function(event) {
-    event.preventDefault(); 
+    event.preventDefault() 
     
 
     
@@ -9,5 +9,34 @@
     
     console.log("Nombre:", nombre);
     console.log("Correo electrónico:", email);
-});
+{});
     </script>
+
+<script>
+  var stripe = Stripe('TU_CLAVE_PUBLICA_DE_STRIPE');
+  var elements = stripe.elements();
+
+  // Configurar el elemento de tarjeta
+  var card = elements.create('card');
+  card.mount('#card-element');
+</script>
+<script>
+  var form = document.getElementById('payment-form');
+  var submitButton = document.getElementById('submit-payment');
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    stripe.createToken(card).then(function (result) {
+      if (result.error) {
+        // Mostrar errores de validación
+        var errorElement = document.getElementById('card-errors');
+        errorElement.textContent = result.error.message;
+      } else {
+        // Enviar el token de pago al servidor para procesar el pago
+        // Aquí deberías enviar result.token al servidor para realizar la carga en Stripe
+        console.log(result.token);
+      }
+    });
+  });
+</script>
