@@ -1,42 +1,76 @@
-<script>tElementById("miFormulario").addEventListener("submit", function(event) {
-    event.preventDefault() 
-    
-
-    
-    var nombre = document.getElementById("nombre").value;
-    var email = document.getElementById("email").value;
-
-    
-    console.log("Nombre:", nombre);
-    console.log("Correo electrónico:", email);
-{});
-    </script>
-
 <script>
-  var stripe = Stripe('TU_CLAVE_PUBLICA_DE_STRIPE');
-  var elements = stripe.elements();
+    function validarFormulario() {
+        var nombre = document.getElementById('nombre').value;
+        var email = document.getElementById('email').value;
+        var mensaje = document.getElementById('mensaje').value;
 
-  // Configurar el elemento de tarjeta
-  var card = elements.create('card');
-  card.mount('#card-element');
-</script>
-<script>
-  var form = document.getElementById('payment-form');
-  var submitButton = document.getElementById('submit-payment');
+        var errorNombre = document.getElementById('errorNombre');
+        var errorEmail = document.getElementById('errorEmail');
+        var errorMensaje = document.getElementById('errorMensaje');
 
-  form.addEventListener('submit', function (event) {
-    event.preventDefault();
+        // Restablecer mensajes de error
+        errorNombre.innerHTML = "";
+        errorEmail.innerHTML = "";
+        errorMensaje.innerHTML = "";
 
-    stripe.createToken(card).then(function (result) {
-      if (result.error) {
-        // Mostrar errores de validación
-        var errorElement = document.getElementById('card-errors');
-        errorElement.textContent = result.error.message;
-      } else {
-        // Enviar el token de pago al servidor para procesar el pago
-        // Aquí deberías enviar result.token al servidor para realizar la carga en Stripe
-        console.log(result.token);
-      }
-    });
-  });
+        // Validar nombre
+        if (nombre === "") {
+            errorNombre.innerHTML = "Por favor, ingresa tu nombre.";
+            return false;
+        }
+
+        // Validar email
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            errorEmail.innerHTML = "Por favor, ingresa un correo electrónico válido.";
+            return false;
+        }
+
+        // Validar mensaje
+        if (mensaje === "") {
+            errorMensaje.innerHTML = "Por favor, ingresa tu mensaje.";
+            return false;
+        }
+
+        
+    }
+
+    function validarTarjeta() {
+        var nombreTitular = document.getElementById('nombreTitular').value;
+        var numeroTarjeta = document.getElementById('numeroTarjeta').value;
+        var fechaVencimiento = document.getElementById('fechaVencimiento').value;
+
+        var errorNombreTitular = document.getElementById('errorNombreTitular');
+        var errorNumeroTarjeta = document.getElementById('errorNumeroTarjeta');
+        var errorFechaVencimiento = document.getElementById('errorFechaVencimiento');
+
+        // Restablecer mensajes de error
+        errorNombreTitular.innerHTML = "";
+        errorNumeroTarjeta.innerHTML = "";
+        errorFechaVencimiento.innerHTML = "";
+
+        // Validar nombre del titular
+        if (nombreTitular === "") {
+            errorNombreTitular.innerHTML = "Por favor, ingresa el nombre del titular.";
+            return false;
+        }
+
+        // Validar número de tarjeta (solo como ejemplo)
+        var tarjetaRegex = /^\d{16}$/;
+        if (!tarjetaRegex.test(numeroTarjeta)) {
+            errorNumeroTarjeta.innerHTML = "Por favor, ingresa un número de tarjeta válido.";
+            return false;
+        }
+
+        // Validar fecha de vencimiento (solo como ejemplo)
+        var fechaRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        if (!fechaRegex.test(fechaVencimiento)) {
+            errorFechaVencimiento.innerHTML = "Por favor, ingresa una fecha de vencimiento válida (MM/AA).";
+            return false;
+        }
+
+        // Si todas las validaciones son exitosas, se enviará el formulario
+        alert("Pago exitoso. En un entorno real, se enviaría la información de pago de forma segura al servidor.");
+        return true;
+    }
 </script>
