@@ -32,7 +32,8 @@
             return false;
         }
 
-        
+        // Si todas las validaciones son exitosas, se enviará el formulario
+        return true;
     }
 
     function validarTarjeta() {
@@ -55,14 +56,14 @@
             return false;
         }
 
-        // Validar número de tarjeta (solo como ejemplo)
+        // Validar número de tarjeta
         var tarjetaRegex = /^\d{16}$/;
         if (!tarjetaRegex.test(numeroTarjeta)) {
             errorNumeroTarjeta.innerHTML = "Por favor, ingresa un número de tarjeta válido.";
             return false;
         }
 
-        // Validar fecha de vencimiento (solo como ejemplo)
+        // Validar fecha de vencimiento
         var fechaRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
         if (!fechaRegex.test(fechaVencimiento)) {
             errorFechaVencimiento.innerHTML = "Por favor, ingresa una fecha de vencimiento válida (MM/AA).";
