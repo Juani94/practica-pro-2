@@ -1,12 +1,12 @@
 <script>
     function validarFormulario() {
-        var nombre = document.getElementById('nombre').value;
-        var email = document.getElementById('email').value;
-        var mensaje = document.getElementById('mensaje').value;
+        let nombre = document.getElementById('nombre').value;
+        let email = document.getElementById('email').value;
+        let mensaje = document.getElementById('mensaje').value;
 
-        var errorNombre = document.getElementById('errorNombre');
-        var errorEmail = document.getElementById('errorEmail');
-        var errorMensaje = document.getElementById('errorMensaje');
+        let errorNombre = document.getElementById('errorNombre');
+        let errorEmail = document.getElementById('errorEmail');
+        let errorMensaje = document.getElementById('errorMensaje');
 
         // Restablecer mensajes de error
         errorNombre.innerHTML = "";
@@ -20,7 +20,7 @@
         }
 
         // Validar email
-        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        let emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
         if (!emailRegex.test(email)) {
             errorEmail.innerHTML = "Por favor, ingresa un correo electrónico válido.";
             return false;
@@ -37,13 +37,13 @@
     }
 
     function validarTarjeta() {
-        var nombreTitular = document.getElementById('nombreTitular').value;
-        var numeroTarjeta = document.getElementById('numeroTarjeta').value;
-        var fechaVencimiento = document.getElementById('fechaVencimiento').value;
+        let nombreTitular = document.getElementById('nombreTitular').value;
+        let numeroTarjeta = document.getElementById('numeroTarjeta').value;
+        let fechaVencimiento = document.getElementById('fechaVencimiento').value;
 
-        var errorNombreTitular = document.getElementById('errorNombreTitular');
-        var errorNumeroTarjeta = document.getElementById('errorNumeroTarjeta');
-        var errorFechaVencimiento = document.getElementById('errorFechaVencimiento');
+        let errorNombreTitular = document.getElementById('errorNombreTitular');
+        let errorNumeroTarjeta = document.getElementById('errorNumeroTarjeta');
+        let errorFechaVencimiento = document.getElementById('errorFechaVencimiento');
 
         // Restablecer mensajes de error
         errorNombreTitular.innerHTML = "";
@@ -57,14 +57,14 @@
         }
 
         // Validar número de tarjeta
-        var tarjetaRegex = /^\d{16}$/;
+        let tarjetaRegex = /^\d{16}$/;
         if (!tarjetaRegex.test(numeroTarjeta)) {
             errorNumeroTarjeta.innerHTML = "Por favor, ingresa un número de tarjeta válido.";
             return false;
         }
 
         // Validar fecha de vencimiento
-        var fechaRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
+        let fechaRegex = /^(0[1-9]|1[0-2])\/\d{2}$/;
         if (!fechaRegex.test(fechaVencimiento)) {
             errorFechaVencimiento.innerHTML = "Por favor, ingresa una fecha de vencimiento válida (MM/AA).";
             return false;
