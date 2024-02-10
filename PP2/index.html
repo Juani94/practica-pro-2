@@ -10,56 +10,8 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="./Imagenes/Revenant icon.png" type="image/x-icon">
 <script src="https://js.stripe.com/v3/"></script>
-<style>
-body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
-
-
-        form {
-            background-color: #fff;
-            padding: 20px;
-            border-radius: 5px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            width: 300px;
-        }
-
-        label {
-            display: block;
-            margin-bottom: 8px;
-        }
-
-        input[type="text"],
-        input[type="email"],
-        input[type="password"]
-        input[type=text],textarea {
-            width: 100%;
-            padding: 12px;
-            margin-bottom: 16px;
-            margin-top: 6px;
-            box-sizing: border-box;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-            resize: vertical;
-        }
-
-        input[type="submit"] {
-            width: 100%;
-            background-color: #4caf50;
-            color: #fff;
-            padding: 12px 20px;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-
-        input[type="submit"]:hover {
-            background-color: #45a049;
-        }
-        .error {
-            color: red;
-        }
-
-</style>
-<script src="./script.js" defer></script>
+<script src="./mijs.js"></script>
+<link rel="stylesheet" href="estilos.css">
 </head>
 <body class="w3-light-grey">
 
@@ -115,48 +67,29 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="w3-container">
       
 
-    <form id="contactForm" onsubmit="return validarFormulario()">
-      <label for="nombre">Nombre:</label>
-      <input type="text" id="nombre" name="nombre">
-      <span id="errorNombre" class="error"></span>
-
-      <br>
-
-      <label for="email">Correo Electrónico:</label>
-      <input type="email" id="email" name="email">
-      <span id="errorEmail" class="error"></span>
-
-      <br>
-
-      <label for="mensaje">Mensaje:</label>
-      <textarea id="mensaje" name="mensaje"></textarea>
-      <span id="errorMensaje" class="error"></span>
-
-      <br>
-
-      
-  </form>
-  <form id="paymentForm" onsubmit="return validarTarjeta()">
+  <form id="paymentForm" action="#" onsubmit="return validarFormulario(event)">
     <label for="nombreTitular">Nombre del Titular:</label>
     <input type="text" id="nombreTitular" name="nombreTitular">
     <span id="errorNombreTitular" class="error"></span>
-
     <br>
 
-    <label for="numeroTarjeta">Número de Tarjeta:</label>
-    <input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="**** **** **** ****">
-    <span id="errorNumeroTarjeta" class="error"></span>
+		<label for="email">Correo Electrónico:</label>
+		<input type="email" id="email" name="email">
+		<span id="errorEmail" class="error"></span>
+		<br>
 
-    <br>
+		<label for="numeroTarjeta">Número de Tarjeta:</label>
+		<input type="text" id="numeroTarjeta" name="numeroTarjeta" placeholder="**** **** **** ****">
+		<span id="errorNumeroTarjeta" class="error"></span>
+		<br>
 
-    <label for="fechaVencimiento">Fecha de Vencimiento:</label>
-    <input type="text" id="fechaVencimiento" name="fechaVencimiento" placeholder="MM/AA">
-    <span id="errorFechaVencimiento" class="error"></span>
+		<label for="fechaVencimiento">Fecha de Vencimiento:</label>
+		<input type="text" id="fechaVencimiento" name="fechaVencimiento" placeholder="MM/AA">
+		<span id="errorFechaVencimiento" class="error"></span>
+		<br>
 
-    <br>
-
-    <input type="submit" value="Pagar">
-</form>
+		<input type="submit" value="Pagar">
+	</form>
 
     </div>
   </div>
