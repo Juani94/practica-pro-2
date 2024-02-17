@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<title>Revenant, streamer y youtuber español</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="icon" href="./Imagenes/Revenant icon.png" type="image/x-icon">
+<script src="https://js.stripe.com/v3/"></script>
+<script src="./mijs.js"></script>
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body class="w3-light-grey">
+
+<!-- w3-content defines a container for fixed size centered content, 
+and is wrapped around the whole page content, except for the footer in this example -->
+<div class="w3-content" style="max-width:1400px">
+
+<!-- Header -->
+<header class="w3-container w3-center w3-padding-32"> 
+  <h1><b>¿Queres tener el mismo Set Up que Revenant para tus streams?</b></h1>
+  <h2>Comprate los productos del setup.</h2>
+</header>
+
+<!-- Grid -->
+<div class="w3-row">
+
+<!-- Blog entries -->
+
+<!-- Introduction menu -->
+<div class="w3-col l4">
+  <!-- About Card -->
+  <div class="w3-card w3-margin w3-margin-top">
+    <img src="./Imagenes/Revenant icon.png" style="width:10%" alt="Revenant icono" class="w3-margin-left">
+    <div class="w3-container w3-white">
+      <h4><b>Acerca del set up </b></h4>
+      <p>El ordenador que posee actualmente Revenant para hacer streams esta compuesto de los productos de mayor calidad y performance que hay en el mercado y aca los podes conseguir con descuentos de sus sponsors.</p>
+    </div>
+  </div><hr>
+  
+  <hr> 
+  
+<!-- END Introduction Menu -->
+</div>
+
+<!-- END GRID -->
+</div><br>
+<div class="w3-row">
+<div class="w3-col l8 s12">
+    <h2 class="w3-text-teal">Carrito de Compras</h2>
+
+    <div class="w3-row">
+        <div class="w3-col l8 s12">
+            <div class="w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;">
+                <h2 class="w3-text-teal">Carrito de Compras</h2>
+                <table class="w3-table w3-striped w3-white">
+                    <thead>
+                        <tr class="w3-light-grey">
+                            <th>Producto</th>
+                            <th>Precio</th>
+                            <th>Cantidad</th>
+                        </tr>
+                    </thead>
+                    <tbody id="carrito">
+                        <!-- Los elementos del carrito se agregarán aquí -->
+                    </tbody>
+                </table>
+                <div class="w3-container w3-margin-top">
+                    <h3>Total: $<span id="total">0</span></h3>
+                    <button class="w3-button w3-green w3-margin-bottom w3-padding-small" onclick="realizarPago()">Pagar</button>
+                </div>
+            </div>
+        </div>
+    
+    </div>
+
+
+    <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;" id="producto1" data-precio="700" data-disponible="5" >
+        <img src="./Imagenes/Monitor OdysseyG9.jpg" style="width:20%" alt="Monitor OdysseyG9" class="w3-margin-left">
+        <h3 class="w3-text-teal">Acerca de este producto:</h3>
+    <div class="w3-row">    
+        <div class="descripcion w3-col">
+        <p id="descripcion1" class="w3-margin-bottom w3-hide">Monitor curvo gaming de 49" con resolución DQHD (5120 x 1440 pixeles) muestra imágenes detalladas y nítidas y gracias a la tecnología QLED y a un panel de 10bits, los colores son realistas
+            Tiempo de respuesta de 1ms (GTG) y 240Hz de tasa de refresco para una jugabilidad fluida
+            Freesync Premium Pro y Gsync compatible, evita el desgarro de la pantalla. Antiparpadeo y menos luz azul: juego aún más prolongado y evita fatiga y fatiga visual
+            HDR 1000 que soporta un pico de luminosidad de 1.000 nits muestra el mínimo detalle incluso en las escenas oscuras o luminosas
+            Permite ajustar la altura así como la inclinación para una mejor experiencia de juego
+        </p>
+        </div>
+        <span>Producto 1 - $700 (Disponible: 5)</span>
+        <div class="w3-rest w3-col">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="mostrarDescripcion('descripcion1')">Ver más</button>
+        </div>
+    </div>
+
+        <input type="number" id="cantidad1" value="1" min="1" max="5">
+        <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto1')">Agregar al carrito</button>
+    </div>
+    <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto2" data-precio="100" data-disponible="10">
+        <img src="./Imagenes/auriculares ASTRO.jpg" style="width:20%" alt="auriculares ASTRO" class="w3-margin-left">
+        <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <div class="w3-row">
+        <div class="descripcion w3-col">    
+        <p id="descripcion2" class="w3-margin-bottom w3-hide">ASTRO Audio V2: Al proporcionar un espectro de frecuencia preciso y suave, ofrece agudos nítidos, medios controlados y bajos sin distorsión para diálogos, música y sonidos claros en el juego
+            Auriculares de audio Dolby: Sumérgete en el juego gracias al audio cinematográfico de alta resolución y a la direccionalidad del sonido que te dan una ventaja competitiva
+            Dolby Atmos (versión Xbox): El audio espacial libera el sonido de las restricciones de los canales, permitiéndole moverse en un espacio tridimensional, incluyendo por encima y por debajo del oyente
+            Personalización individualizada Mejora los auriculares a50 con adecuado aspecto y mejores sensaciones con un mod kit
+            Almohadillas de cuero sintético con aislamiento de ruido Las cómodas almohadillas de cuero sintético aíslan el ruido de fondo para ayudarte a mantenerte concentrado
+            Cómoda diadema de cuero sintético La suave diadema de cuero sintético proporciona sujeción y comodidad adicional sobre la cabeza
+        </p>
+        </div>
+        <span>Producto 2 - $100 (Disponible: 10)</span>
+        <div class="w3-rest w3-col">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="mostrarDescripcion('descripcion2')">Ver más</button>
+        </div>
+        </div>
+        <input type="number" id="cantidad2" value="1" min="1" max="10">
+        <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto2')">Agregar al carrito</button>
+    </div>
+    <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto3" data-precio="50" data-disponible="50">
+        <img src="./Imagenes/Teclado CORSAIR.jpg" style="width:20%" alt="teclado CORSAIR" class="w3-margin-left">
+        <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <div class="w3-row">
+        <div class="descripcion w3-col">    
+        <p id="descripcion3" class="w3-margin-bottom w3-hide">Interruptores mecánicos 100 % Cherry MX Red con contactos dorados para pulsaciones de teclas rápidas y precisas
+            La retroiluminación LED roja en cada tecla y las fuentes de gran tamaño ofrecen efectos de iluminación intensos
+            Diseño compacto sin teclado numérico para optimizar el espacio de la mesa y la movilidad
+            Controles específicos multimedia y de volumen para ajustar el sonido sin tener que interrumpir el juego
+            La protección contra pulsaciones nulas con detección simultánea de teclas garantiza que los comandos y las pulsaciones simultáneas siempre quedarán registrados según lo esperado
+            QWERTY Español
+            Tecnología de conectividad: alámbrico
+        </p>
+        </div>
+        <span>Producto 3 - $50 (Disponible: 50)</span>
+        <div class="w3-rest w3-col">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="mostrarDescripcion('descripcion3')">Ver más</button>
+        </div>
+        </div>
+        <input type="number" id="cantidad3" value="1" min="1" max="50">
+        <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto3')">Agregar al carrito</button>
+    </div>
+    <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto4" data-precio="80" data-disponible="25">
+        <img src="./Imagenes/Razer DeathAdder.jpg" style="width:20%" alt="Razer DeathAdder" class="w3-margin-left">
+        <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <div class="w3-row">
+        <div class="descripcion w3-col">   
+        <p id="descripcion4" class="w3-margin-bottom w3-hide">perfectamente diseñado para encajar cómodamente debajo de la palma de la mano, la forma ergonómica del croma Razer DeathAdder ofrece a los jugadores la experiencia de juego más cómoda del mundo, especialmente durante la mayoría de las pruebas de las batallas.
+            el croma razer deathadder está equipado con un sensor óptico 10,000dpi. que es capaz de velocidades de movimiento del ratón de hasta 200 pulgadas por segundo y 50g de aceleración.
+            si su juego a gran velocidad o bajas, el croma deathadder siempre responderá en pantalla con exigentes de precisión y la fluidez orgánica sólo es posible con un sensor óptico.
+            sensor del razer deathadder de croma también es capaz de rastrear eje z hasta un mínimo de 1 mm en la mayoría de superficies, incluyendo tableros de mesa de vidrio. esto es perfecto para los jugadores bajo sentido que quieren ajustar el seguimiento en corte tan pronto como se levantan los ratones.
+            iluminación de croma con 16,8 millones de opciones de color personalizable sea que esté en el estado de ánimo para el azul eléctrico, rosa pastel, o la firma Razer verde, ahora se puede iluminar su Razer DeathAdder de croma rueda de desplazamiento y el logotipo de Razer de la manera que desee.
+        </p>
+        </div>
+        <span>Producto 4 - $80 (Disponible: 25)</span>
+        <div class="w3-rest w3-col">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="mostrarDescripcion('descripcion4')">Ver más</button>
+        </div>
+        </div>
+        <input type="number" id="cantidad4" value="1" min="1" max="25">    
+        <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto4')">Agregar al carrito</button>
+    </div>
+    <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto5" data-precio="500" data-disponible="10">
+        <img src="./Imagenes/MicrofonoShureSM7B.jpg" style="width:20%" alt="MicrofonoShureSM7B" class="w3-margin-left">
+        <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <div class="w3-row">
+        <div class="descripcion w3-col">   
+            <p id="descripcion5" class="w3-margin-bottom w3-hide">UN MICRÓFONO PARA TODO - grabación en estudio y en casa, producción de podcasts y streaming. El SM7B es el micrófono en el que confían los mejores vocalistas, productores de podcasts y streamers del mundo
+                GRABACIÓN DE VOZ EN ESTUDIO - la cápsula dinámica del micrófono SM7B posee una respuesta de frecuencias suave, plana y de rango amplio que capta de forma natural y limpia tanto la música como la voz
+                PODCAST Y RETRANSMISIÓN - el SM7B está presente en los mejores estudios de podcasts del mundo. El sistema de aislamiento antigolpes por suspensión de aire y el filtro antipop eliminan los ruidos mecánicos y de respiración. La voz se graba sin problemas y todo lo que sobra ni siquiera llega a la mezcla
+                STREAMING - el éxito en el streaming empieza con un micrófono que capta el sonido de la música y las voces con una claridad y naturalidad excepcionales. El SM7B lleva décadas a la vanguardia ofreciendo todas estas prestaciones
+                CONEXIÓN XLR PROFESIONAL: usando la conexión XLR con una interfaz de audio tienes un mayor control sobre el sonido y, con ello, una mayor calidad en general. Se recomienda un mínimo de 60 dB de ganancia para conseguir ese icónico tono cálido y equilibrado que se suele asociar al SM7B.
+                PATRÓN CARDIOIDE CLÁSICO CON CAPTACIÓN UNIFORME - el patrón cardioide del micrófono SM7B está diseñado para rechazar el sonido fuera del eje, por lo que podrás cantar o hablar en un ángulo cómodo mientras se capta el sonido tal y como deseas, y con un mínimo de coloración
+                SONIDO SIN INTERFERENCIAS - Hemos añadido un apantallamiento electromagnético avanzado para eliminar el zumbido generador por monitores de ordenador y otros dispositivos del estudio
+            </p>
+        </div>   
+        <span>Producto 5 - $500 (Disponible: 10)</span>
+        <div class="w3-rest w3-col">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="mostrarDescripcion('descripcion5')">Ver más</button>
+        </div>
+        </div>
+        <input type="number" id="cantidad5" value="1" min="1" max="10">
+        <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto5')">Agregar al carrito</button>
+    </div>
+    <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto6" data-precio="400" data-disponible="100">
+        <img src="./Imagenes/Gabinete AsusRog.jpg" style="width:20%" alt="Gabinete AsusRog" class="w3-margin-left">
+        <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <div class="w3-row">
+        <div class="descripcion w3-col"> 
+            <p id="descripcion6" class="w3-margin-bottom w3-hide">Marca	ASUS
+                Compatibilidad con placa base	ATX
+                Tipo de caja	Mid Tower
+                Usos recomendados para el producto	Videojuegos
+                Color	blanco
+                Material	Aluminio
+                Tipo de montaje de la fuente de alimentación	Montaje trasero
+                Método de refrigeración	Agua
+                Color de la luz	Blanco
+                Tamaño del ventilador	120 Milímetros
+            </p>
+        </div>
+            <span>Producto 6 - $400 (Disponible: 100)</span>
+        <div class="w3-rest w3-col">
+            <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="mostrarDescripcion('descripcion6')">Ver más</button>
+        </div>
+        </div>
+        <input type="number" id="cantidad6" value="1" min="1" max="100">
+        <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto6')">Agregar al carrito</button>
+    </div>
+    <hr>
+  
+    
+</div> 
+<!-- END w3-content -->
+</div>
+
+<!-- Footer -->
+<footer class="w3-container w3-dark-grey w3-padding-32 w3-margin-top">
+  <button class="w3-button w3-black w3-disabled w3-padding-large w3-margin-bottom">Atrás</button>
+  <a href="./YoutubeHistoria.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Youtube</a>
+  <a href="./TwitchHistoria.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Twich</a>
+  <a href="./index.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Principal</a>
+  <p>
+  <a href="https://twitter.com/G4G_Revenant" target="_blank" rel="noopener noreferrer" class="w3-padding-small">
+            <i class="fa fa-twitter"></i> Twitter
+        </a>
+  <a href="https://www.instagram.com/luismi_revenant/" target="_blank" rel="noopener noreferrer" class="w3-padding-small">
+            <i class="fa fa-instagram"></i> Instagram
+        </a>
+	</p>
+  <p class="w3-padding-small">© 2024 Revenant. Todos los derechos reservados.</p>
+</footer>
+</body>
+</html>

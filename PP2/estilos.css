@@ -43,3 +43,10 @@ body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
         .error {
             color: red;
         }
+        .producto {
+            margin-bottom: 10px;
+          }
+          .descripcion {
+            float: left;
+            width: 70%;
+          }
