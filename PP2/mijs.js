@@ -1,9 +1,9 @@
 document.addEventListener('DOMContentLoaded', function() {
-  document.getElementById('paymentForm').addEventListener('submit', validarFormulario);
+  if(document.getElementById('paymenForm') !=null){
+  document.getElementById('paymentForm').addEventListener('submit', validarFormulario);}
 });        
         function validarFormulario() {
           event.preventDefault();//Evita que el formulario se envie si hay errores
-
             
             let nombreTitular = document.getElementById('nombreTitular').value;
             let email = document.getElementById('email').value;
@@ -17,19 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
             let errorNumeroTarjeta = document.getElementById('errorNumeroTarjeta');
             let errorFechaVencimiento = document.getElementById('errorFechaVencimiento');
             
-
-
-
-
-
-            
             errorNombreTitular.innerHTML = "";
             errorEmail.innerHTML = "";
             errorNumeroTarjeta.innerHTML = "";
             errorFechaVencimiento.innerHTML = "";
-
-
-
 
             if (nombreTitular === "") {
                 errorNombreTitular.innerHTML = "Por favor, ingresa el nombre del titular.";
@@ -57,8 +48,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     // Si todas las validaciones son exitosas, se enviará el formulario
             alert("Pago exitoso. En un entorno real, se enviaría la información de pago de forma segura al servidor.");
             return true;
+            
         }
-        document.getElementById('paymentForm').addEventListener('submit', validarFormulario);
+        
+       // document.getElementById('paymentForm').addEventListener('submit', validarFormulario);
 
   function mostrarDescripcion(idDescripcion) {
     let descripcion = document.getElementById(idDescripcion);
@@ -93,7 +86,7 @@ function agregarAlCarrito(idProducto) {
     // Agregar el producto al carrito
     const productoEnCarrito = {
         id: idProducto,
-        nombre: producto.querySelector('h3').textContent,
+        nombre: producto.querySelector('h4').textContent,
         precio: precio,
         cantidad: cantidad
     };
@@ -101,6 +94,7 @@ function agregarAlCarrito(idProducto) {
 
     // Actualizar la visualización del total del carrito
     actualizarTotal();
+    actualizarTablaCarrito();
 }
 
 // Función para actualizar el total del carrito
@@ -127,6 +121,7 @@ function realizarPago() {
     document.getElementById('total').innerText = '0';
     // Reiniciar la cantidad de productos en el carrito
     reiniciarCantidadProductos();
+    window.location.reload();
   } else {
     // Si el total es cero, mostrar un mensaje de error
     alert('El carrito está vacío. No se puede realizar el pago.');
@@ -141,4 +136,26 @@ function reiniciarCantidadProductos() {
   document.getElementById('cantidad4').value = '1';
   document.getElementById('cantidad5').value = '1';
   document.getElementById('cantidad6').value = '1';
+}
+function actualizarTablaCarrito() {
+  // Obtener la tabla del carrito
+  const tablaCarrito = document.getElementById('carritoTable').getElementsByTagName('tbody')[0];
+
+  // Limpiar la tabla antes de agregar los nuevos datos
+  tablaCarrito.innerHTML = '';
+
+  // Recorrer el carrito y agregar cada producto a la tabla
+  carrito.forEach(producto => {
+    const fila = tablaCarrito.insertRow();
+
+    // Agregar las celdas con los datos del producto
+    const nombreCelda = fila.insertCell(0);
+    nombreCelda.textContent = producto.nombre;
+
+    const precioCelda = fila.insertCell(1);
+    precioCelda.textContent = producto.precio.toFixed(2);
+
+    const cantidadCelda = fila.insertCell(2);
+    cantidadCelda.textContent = producto.cantidad;
+  });
 }

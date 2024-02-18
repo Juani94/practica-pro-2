@@ -10,7 +10,6 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="icon" href="./Imagenes/Revenant icon.png" type="image/x-icon">
 <script src="https://js.stripe.com/v3/"></script>
-<script src="./mijs.js"></script>
 <link rel="stylesheet" href="estilos.css">
 </head>
 <body class="w3-light-grey">
@@ -56,7 +55,7 @@ and is wrapped around the whole page content, except for the footer in this exam
         <div class="w3-col l8 s12">
             <div class="w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;">
                 <h2 class="w3-text-teal">Carrito de Compras</h2>
-                <table class="w3-table w3-striped w3-white">
+                <table class="w3-table w3-striped w3-white" id="carritoTable">
                     <thead>
                         <tr class="w3-light-grey">
                             <th>Producto</th>
@@ -79,8 +78,9 @@ and is wrapped around the whole page content, except for the footer in this exam
 
 
     <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;" id="producto1" data-precio="700" data-disponible="5" >
-        <img src="./Imagenes/Monitor OdysseyG9.jpg" style="width:20%" alt="Monitor OdysseyG9" class="w3-margin-left">
+        <img src="./Imagenes/Monitor OdysseyG9.jpg" style="width:20%" alt="Monitor OdysseyG9" class="w3-margin-left" >
         <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <h4 class="w3-text-teal" id="Nombre"> Monitor OdysseyG9</h4>
     <div class="w3-row">    
         <div class="descripcion w3-col">
         <p id="descripcion1" class="w3-margin-bottom w3-hide">Monitor curvo gaming de 49" con resolución DQHD (5120 x 1440 pixeles) muestra imágenes detalladas y nítidas y gracias a la tecnología QLED y a un panel de 10bits, los colores son realistas
@@ -102,6 +102,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto2" data-precio="100" data-disponible="10">
         <img src="./Imagenes/auriculares ASTRO.jpg" style="width:20%" alt="auriculares ASTRO" class="w3-margin-left">
         <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <h4 class="w3-text-teal" id="Nombre">Auriculares ASTRO</h4>
         <div class="w3-row">
         <div class="descripcion w3-col">    
         <p id="descripcion2" class="w3-margin-bottom w3-hide">ASTRO Audio V2: Al proporcionar un espectro de frecuencia preciso y suave, ofrece agudos nítidos, medios controlados y bajos sin distorsión para diálogos, música y sonidos claros en el juego
@@ -121,8 +122,9 @@ and is wrapped around the whole page content, except for the footer in this exam
         <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto2')">Agregar al carrito</button>
     </div>
     <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto3" data-precio="50" data-disponible="50">
-        <img src="./Imagenes/Teclado CORSAIR.jpg" style="width:20%" alt="teclado CORSAIR" class="w3-margin-left">
+        <img src="./Imagenes/Teclado CORSAIR.jpg" style="width:20%" alt="teclado CORSAIR" class="w3-margin-left" >
         <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <h4 class="w3-text-teal" id="Nombre" >teclado CORSAIR</h4>
         <div class="w3-row">
         <div class="descripcion w3-col">    
         <p id="descripcion3" class="w3-margin-bottom w3-hide">Interruptores mecánicos 100 % Cherry MX Red con contactos dorados para pulsaciones de teclas rápidas y precisas
@@ -143,8 +145,9 @@ and is wrapped around the whole page content, except for the footer in this exam
         <button class="w3-button w3-blue w3-margin-top w3-margin-bottom w3-padding-small" onclick="agregarAlCarrito('producto3')">Agregar al carrito</button>
     </div>
     <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto4" data-precio="80" data-disponible="25">
-        <img src="./Imagenes/Razer DeathAdder.jpg" style="width:20%" alt="Razer DeathAdder" class="w3-margin-left">
+        <img src="./Imagenes/Razer DeathAdder.jpg" style="width:20%" alt="Razer DeathAdder" class="w3-margin-left" >
         <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <h4 class="w3-text-teal" id="Nombre">Razer DeathAdder</h4>
         <div class="w3-row">
         <div class="descripcion w3-col">   
         <p id="descripcion4" class="w3-margin-bottom w3-hide">perfectamente diseñado para encajar cómodamente debajo de la palma de la mano, la forma ergonómica del croma Razer DeathAdder ofrece a los jugadores la experiencia de juego más cómoda del mundo, especialmente durante la mayoría de las pruebas de las batallas.
@@ -165,6 +168,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto5" data-precio="500" data-disponible="10">
         <img src="./Imagenes/MicrofonoShureSM7B.jpg" style="width:20%" alt="MicrofonoShureSM7B" class="w3-margin-left">
         <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <h4 class="w3-text-teal" id="Nombre">MicrofonoShureSM7B</h4>
         <div class="w3-row">
         <div class="descripcion w3-col">   
             <p id="descripcion5" class="w3-margin-bottom w3-hide">UN MICRÓFONO PARA TODO - grabación en estudio y en casa, producción de podcasts y streaming. El SM7B es el micrófono en el que confían los mejores vocalistas, productores de podcasts y streamers del mundo
@@ -187,6 +191,7 @@ and is wrapped around the whole page content, except for the footer in this exam
     <div class="producto w3-container card-4 w3-margin w3-white" style="max-width: 800px; margin: auto;"  id="producto6" data-precio="400" data-disponible="100">
         <img src="./Imagenes/Gabinete AsusRog.jpg" style="width:20%" alt="Gabinete AsusRog" class="w3-margin-left">
         <h3 class="w3-text-teal">Acerca de este producto:</h3>
+        <h4 class="w3-text-teal" id="Nombre">Gabinete AsusRog</h4>
         <div class="w3-row">
         <div class="descripcion w3-col"> 
             <p id="descripcion6" class="w3-margin-bottom w3-hide">Marca	ASUS
@@ -222,6 +227,7 @@ and is wrapped around the whole page content, except for the footer in this exam
   <a href="./YoutubeHistoria.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Youtube</a>
   <a href="./TwitchHistoria.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Twich</a>
   <a href="./index.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Principal</a>
+  <a href="./SetupCompra.html" class="w3-button w3-black w3-padding-large w3-margin-bottom">Setup</a>
   <p>
   <a href="https://twitter.com/G4G_Revenant" target="_blank" rel="noopener noreferrer" class="w3-padding-small">
             <i class="fa fa-twitter"></i> Twitter
@@ -232,5 +238,6 @@ and is wrapped around the whole page content, except for the footer in this exam
 	</p>
   <p class="w3-padding-small">© 2024 Revenant. Todos los derechos reservados.</p>
 </footer>
+<script src="./mijs.js"></script>
 </body>
 </html>
